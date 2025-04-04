@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🌟 Estilos gerais da linha */
+.line {
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 90px;
+    /* Ajustado pelo JS */
+    height: 5px;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🌟 Ocultar os conteúdos das abas não ativas */
+.conte {
+    display: none;
+}
+
+/* 🌟 Centralizar os botões */
+.tab_box {
+    display: flex;
+    justify-content: center;
+    /* Centraliza os botões */
+    position: relative;
+    /* Necessário para a linha */
+    margin-bottom: 20px;
+    /* Espaçamento abaixo dos botões */
+    gap: 30px;
+}
+
+/* 🌟 Exibir apenas o conteúdo da aba ativa */
+.conte.active {
+    display: block;
+}
+
+/* 🌟 Estilos dos botões */
+.tab_btn {
+    background-color: transparent;
+    border: 2px solid #ccc;
+    color: #ccc;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+
+.tab_btn:hover {
+    background-color: #1c1c1c;
+    color: #c6c9cc;
+}
+
+.tab_btn.active {
+    background-color: #c6c9cc;
+    color: #1c1c1c;
+}
+
+/* 🌟 Animação na troca de abas */
+.conte_box {
+    position: relative;
+    margin-top: 20px;
+    /* Ajusta o espaçamento entre os botões e o conteúdo */
+    animation: moving .5s ease;
+}
+
+@keyframes moving {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+/* 🌟 Estilos das colunas */
+th.rank,
+td.rank {
+    width: 5%;
+    text-align: center;
+    padding-left: 25x;
+}
+
+th.time,
+td.time {
+    width: 50%;
+    text-align: start;
+    padding-left: 20px;
+}
+
+th.kills,
+td.kills {
+    width: 10%;
+    text-align: center;
+}
+
+th.kd,
+td.kd {
+    width: 10%;
+    text-align: center;
+}
+
+th.booyahs,
+td.booyahs {
+    width: 10%;
+    text-align: center;
+}
+
+th.titulos,
+td.titulos {
+    width: 10%;
+    text-align: center;
+}
+
+th.pontos,
+td.pontos {
+    width: 10%;
+    text-align: center;
+    padding-right: 25px;
+}
+
+/* 🌟 Nome da equipe */
+.time {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* 🌟 Responsividade */
+
+/* 🔻 Ajustes para tablets e pequenos laptops */
+@media (max-width: 1024px) {
+
+    .table-s1 .kills,
+    /* Esconde "Kills" */
+    .table-s1 .booyahs {
+        /* Esconde "Booyahs" */
+        display: none;
+    }
+}
+
+/* 🔻 Ajustes para celulares médios */
+@media (max-width: 768px) {
+
+    .table-s1 .kills,
+    .table-s1 .booyahs,
+    .table-s1 .kd {
+        /* Esconde "K/D", mantém "Equipe" */
+        display: none;
+    }
+}
+
+/* 🔻 Ajustes para celulares pequenos */
+@media (max-width: 480px) {
+
+    .table-s1 .kills,
+    .table-s1 .booyahs,
+    .table-s1 .titulos {
+        /* Esconde "Equipe", deixando só Rank, Títulos e Pontos */
+        display: none;
+    }
+}
+
+/* 🌟 Responsividade para botões */
+@media (max-width: 768px) {
+    .tab_box {
+        flex-direction: row;
+        /* Mantém os botões em linha */
+        justify-content: center;
+        /* Centraliza os botões */
+    }
+
+    .tab_btn {
+        padding: 8px 16px;
+        /* Ajusta o tamanho dos botões */
+        font-size: 14px;
+    }
+
+    .line {
+        width: 60px;
+        /* Ajusta a largura da linha em telas menores */
+    }
+}
+
+/* 🌟 Responsividade da tabela */
+.table-responsive {
+    overflow-x: auto;
+    /* Permite rolagem horizontal */
+    width: 100%;
+}
+
+.table-s1 th,
+.table-s1 td {
+    white-space: nowrap;
+    /* Evita quebra de texto */
+}
